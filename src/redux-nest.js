@@ -9,23 +9,23 @@ export const proxy = object => {
      * @property nullObject
      * @type {Object}
      */
-    const nullObject = {};
-
-    /**
-     * @method toString
-     * @return {undefined}
-     */
-    nullObject.toString = () => undefined;
-
-    return new Proxy(object, {
+    const nullObject = {
 
         /**
-         * @constructor
-         * @return {Proxy}
+         * @constant IS_NULL
+         * @return {Boolean}
          */
-        constructor() {
-            this.isUndefined = true;
-        },
+        IS_NULL: true,
+
+        /**
+         * @method toString
+         * @return {undefined}
+         */
+        toString: () => undefined
+
+    };
+
+    return new Proxy(object, {
 
         /**
          * @method get
@@ -48,4 +48,22 @@ export const proxy = object => {
 
     });
 
+};
+
+/**
+ * @method isDefined
+ * @param {*} object
+ * @return {Boolean}
+ */
+export const isDefined = object => {
+    return !isUndefined(object);
+};
+
+/**
+ * @method isUndefined
+ * @param {*} object
+ * @return {Boolean}
+ */
+export const isUndefined = object => {
+    return object.IS_NULL;
 };
