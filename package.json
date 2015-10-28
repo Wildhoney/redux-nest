@@ -1,6 +1,6 @@
 {
   "name": "redux-nest",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Redux middleware for wrapping store in a Proxy to help with complex nested states.",
   "main": "src/redux-nest.js",
   "scripts": {
