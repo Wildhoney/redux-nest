@@ -2,7 +2,7 @@
   "name": "redux-nest",
   "version": "0.1.0",
   "description": "Redux middleware for wrapping store in a Proxy to help with complex nested states.",
-  "main": "src/nest.js",
+  "main": "src/redux-nest.js",
   "scripts": {
     "test": "gulp test"
   },
@@ -25,5 +25,9 @@
   "bugs": {
     "url": "https://github.com/Wildhoney/redux-nest/issues"
   },
-  "homepage": "https://github.com/Wildhoney/redux-nest#readme"
+  "homepage": "https://github.com/Wildhoney/redux-nest#readme",
+  "devDependencies": {
+    "babelify": "^6.4.0",
+    "gulp": "^3.9.0"
+  }
 }
