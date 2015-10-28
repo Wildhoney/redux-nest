@@ -8,7 +8,7 @@ module.exports = function(config) {
             'tests/*.js'
         ],
         preprocessors: {
-            'src/nest.js': ['browserify'],
+            'src/redux-nest.js': ['browserify'],
             'tests/*.js': ['browserify']
         },
         reporters: ['spec'],
