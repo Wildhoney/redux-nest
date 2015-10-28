@@ -13,6 +13,9 @@ describe('redux-nest', () => {
         expect(model.location.name.toString()).toBeUndefined();
         expect(model.location.name.short.toString()).toBeUndefined();
 
+        model.location = { name: { short: 'Ldn' } };
+        expect(model.location.name.short.toString()).toEqual('Ldn');
+
     });
 
 });
