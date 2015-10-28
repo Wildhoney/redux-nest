@@ -49,21 +49,3 @@ export const proxy = object => {
     });
 
 };
-
-/**
- * @method isDefined
- * @param {*} object
- * @return {Boolean}
- */
-export const isDefined = object => {
-    return !(object instanceof Proxy && object.isUndefined);
-};
-
-/**
- * @method isUndefined
- * @param {*} object
- * @return {Boolean}
- */
-export const isUndefined = object => {
-    return !isDefined(object);
-};

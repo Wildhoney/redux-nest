@@ -1,4 +1,4 @@
-import {proxy, isDefined, isUndefined} from '../src/redux-nest';
+import {proxy} from '../src/redux-nest';
 
 describe('redux-nest', () => {
 
