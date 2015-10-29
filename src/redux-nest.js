@@ -1,9 +1,9 @@
 /**
- * @method proxy
+ * @method create
  * @param {Object} object
  * @return {Proxy}
  */
-export const proxy = object => {
+export function create(object) {
 
     /**
      * @property nullObject
@@ -35,35 +35,47 @@ export const proxy = object => {
             try {
 
                 if (typeof targetObject[property] === 'undefined') {
-                    return proxy(nullObject);
+                    return create(nullObject);
                 }
 
                 return targetObject[property];
 
             } catch (e) {
-                return proxy(nullObject);
+                return create(nullObject);
             }
 
         }
 
     });
 
-};
+}
+
+/**
+ * @method camelize
+ * @return {Function}
+ */
+export function proxy() {
+
+    return next => action => {
+        next(create(action));
+    };
+
+}
 
 /**
  * @method isDefined
  * @param {*} object
  * @return {Boolean}
  */
-export const isDefined = object => {
+export function isDefined(object) {
     return !isUndefined(object);
-};
+}
 
 /**
  * @method isUndefined
  * @param {*} object
  * @return {Boolean}
  */
-export const isUndefined = object => {
+export function isUndefined(object) {
     return object.IS_NULL;
-};
+}
