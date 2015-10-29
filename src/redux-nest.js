@@ -36,6 +36,9 @@ export function create(object) {
 
         /**
          * @method get
+         * @param {Object} targetObject
+         * @param {String} property
+         * @return {*|Proxy}
          */
         get(targetObject, property) {
 
