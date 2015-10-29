@@ -6,6 +6,13 @@
 export function create(object) {
 
     /**
+     * @method isUndefined
+     * @param {*} object
+     * @return {Boolean}
+     */
+    const isUndefined = object => typeof object === 'undefined';
+
+    /**
      * @property nullObject
      * @type {Object}
      */
@@ -34,14 +41,13 @@ export function create(object) {
 
             try {
 
-                if (typeof targetObject[property] === 'undefined') {
-                    return create(nullObject);
-                }
-
-                return targetObject[property];
+                const item = targetObject[property];
+                return isUndefined(item) ? create(nullObject) : item;
 
             } catch (e) {
+
                 return create(nullObject);
+
             }
 
         }
