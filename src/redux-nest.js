@@ -13,10 +13,10 @@ export function create(object) {
     const isUndefined = object => typeof object === 'undefined';
 
     /**
-     * @property nullObject
+     * @property noop
      * @type {Object}
      */
-    const nullObject = {
+    const noop = {
 
         /**
          * @constant IS_NULL
@@ -45,11 +45,11 @@ export function create(object) {
             try {
 
                 const item = targetObject[property];
-                return isUndefined(item) ? create(nullObject) : item;
+                return isUndefined(item) ? create(noop) : item;
 
             } catch (e) {
 
-                return create(nullObject);
+                return create(noop);
 
             }
 
