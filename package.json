@@ -38,5 +38,10 @@
     "karma-firefox-launcher": "^0.1.6",
     "karma-jasmine": "^0.3.6",
     "karma-spec-reporter": "0.0.22"
+  },
+  "browserify": {
+    "transform": [
+      "babelify"
+    ]
   }
 }
