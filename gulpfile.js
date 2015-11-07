@@ -3,6 +3,7 @@
     var fs         = require('fs'),
         gulp       = require('gulp'),
         karma      = require('gulp-karma'),
+        eslint     = require('gulp-eslint'),
         browserify = require('browserify'),
         babelify   = require('babelify');
 
@@ -17,6 +18,15 @@
 
     };
 
+    gulp.task('lint', function() {
+
+        return gulp.src('src/redux-nest.js')
+            .pipe(eslint())
+            .pipe(eslint.format())
+            .pipe(eslint.failOnError());
+
+    });
+
     gulp.task('karma', function() {
 
         return gulp.src([].concat('src/redux-nest.js', 'tests/*.test.js'))
@@ -28,7 +38,7 @@
 
     });
 
-    gulp.task('test', ['karma']);
+    gulp.task('test', ['karma', 'lint']);
     gulp.task('default', ['test', 'build']);
 
     gulp.task('watch', function watch() {

@@ -6,11 +6,11 @@
 export function create(object) {
 
     /**
-     * @method isUndefined
-     * @param {*} object
+     * @method defined
+     * @param {*} x
      * @return {Boolean}
      */
-    const isUndefined = object => typeof object === 'undefined';
+    const defined = x => typeof x !== 'undefined';
 
     /**
      * @property noop
@@ -45,7 +45,7 @@ export function create(object) {
             try {
 
                 const item = targetObject[property];
-                return isUndefined(item) ? create(noop) : item;
+                return !defined(item) ? create(noop) : item;
 
             } catch (e) {
 
@@ -72,19 +72,19 @@ export function proxy() {
 }
 
 /**
- * @method isDefined
- * @param {*} object
- * @return {Boolean}
- */
-export function isDefined(object) {
-    return !isUndefined(object);
-}
-
-/**
  * @method isUndefined
  * @param {*} object
  * @return {Boolean}
  */
 export function isUndefined(object) {
     return object.IS_NULL;
+}
+
+/**
+ * @method isDefined
+ * @param {*} object
+ * @return {Boolean}
+ */
+export function isDefined(object) {
+    return !isUndefined(object);
 }
