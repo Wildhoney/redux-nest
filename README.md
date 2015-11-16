@@ -19,7 +19,7 @@ From there any data that passes through the store will be wrapped in a `Proxy` t
 
 In the following case, even if `person` is undefined it will still succeed and simply print nothing:
 
-```javascript
+```html
 <label>
     {store.person.name}
 </label>
@@ -29,7 +29,7 @@ In the following case, even if `person` is undefined it will still succeed and s
 
 As the data is wrapped in a `Proxy` you cannot do the usual check of `typeof x === 'undefined'` because now `x` is an instance of `Proxy` &mdash; to allow you to check if `x` is `undefined`, `redux-nest` provides two functions.
 
-```
+```javascript
 import {isDefined, isUndefined} from 'redux-nest';
 
 // ...
